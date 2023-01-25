@@ -1,9 +1,5 @@
 package Projekt;
-
-import java.util.Arrays;
-
 public class Main {
-
     private static int min(int x, int y)
     {
         if (x < y)
@@ -41,21 +37,27 @@ public class Main {
 
                 int t = m;
                 int s = n;
-
-                for(;t> 0||s> 0; ) {
+                String trace[] = new String[m*n];
+                int iteration = 0;
+                for(;t> 0||s> 0;iteration++){
                     if(s>=1 &&(tc[t][s] - cost[t][s]) == tc[t][s-1]){
 
-                        System.out.println(cost[t][s-1] + "<-");
+                        trace[iteration]=(cost[t][s-1] + "➡");
                         s--;
                     }
                 else if(t>=1 &&(tc[t][s] - cost[t][s]) == tc[t-1][s]){
 
-                    System.out.println(cost[t-1][s] + "↑");
+                        trace[iteration]=(cost[t-1][s] + "⬇");
                     t--;
 
                 }
 
                 }
+                iteration--;
+                for(;iteration>=0;iteration--){
+                System.out.print(trace[iteration]);
+                 }
+                System.out.println(cost[m][n]);
 
         return tc[m][n];
 
@@ -64,12 +66,17 @@ public class Main {
        public static void main(String[] args) {
         int[][] matrix =
                 {
-                        {2,0,3,2,5},//pierwszy wiersz
-                        {4,4,1,2,5},//drugi wiersz
-                        {11,12,15,4,5},//trzecia trzeci wiersz
-                        {1,5,3,1,5},
+                        {2,0,3,2},//pierwszy wiersz
+                        {4,4,1,2},//drugi wiersz
+                        {11,12,15,4},//trzecia trzeci wiersz
+                        {1,5,3,1},
+                        {1,5,3,1},
+                        {1,5,3,1},
+                        {1,5,3,1},
+
+
                 };
-           System.out.println("minimum cost to reach" + " (3, 3) = " + minCost(matrix, 3, 4));
+           System.out.println("\n minimum cost to reach" + " (3, 3) = " + minCost(matrix, 6, 3));
 
     }
 
