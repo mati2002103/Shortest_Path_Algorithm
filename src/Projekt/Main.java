@@ -76,8 +76,12 @@ public class Main {
 
 
                 };
-           System.out.println("\n minimum cost to reach" + " (3, 3) = " + minCost(matrix, 6, 3));
+           System.out.println("\n minimum cost to reach end: "  + minCost(matrix, 6, 3));
+
+
+
 
     }
+
 
 }
